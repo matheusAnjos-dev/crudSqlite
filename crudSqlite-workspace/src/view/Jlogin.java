@@ -82,6 +82,7 @@ public class Jlogin extends JFrame {
 		panel.add(passwordField);
 		
 		JButton btnNewButton = new JButton("Entrar");
+		//evento botao login
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -90,6 +91,10 @@ public class Jlogin extends JFrame {
 						passwordField.getText()!= null &&
 						!passwordField.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(btnNewButton, "Login realizado com sucesso.");
+					dispose(); // fecha janela de login
+					JMain jMain = new JMain();
+					jMain.setLocationRelativeTo(jMain);
+					jMain.setVisible(true);
 				}
 				else {
 					JOptionPane.showMessageDialog(btnNewButton, "Usuario ou senha incorretos. Verifique as informações", "Aviso", JOptionPane.WARNING_MESSAGE);
