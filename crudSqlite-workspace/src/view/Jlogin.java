@@ -43,8 +43,9 @@ public class Jlogin extends JFrame {
 	 * Create the frame.
 	 */
 	public Jlogin() {
+		setBackground(new Color(0, 128, 192));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 553, 351);
+		setBounds(100, 100, 799, 629);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 128, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -53,7 +54,7 @@ public class Jlogin extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(146, 42, 250, 226);
+		panel.setBounds(261, 174, 250, 226);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -82,6 +83,7 @@ public class Jlogin extends JFrame {
 		panel.add(passwordField);
 		
 		JButton btnNewButton = new JButton("Entrar");
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		//evento botao login
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
