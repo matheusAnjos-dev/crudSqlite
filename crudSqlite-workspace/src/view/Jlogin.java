@@ -14,6 +14,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
 
 public class Jlogin extends JFrame {
 
@@ -45,45 +48,42 @@ public class Jlogin extends JFrame {
 	public Jlogin() {
 		setBackground(new Color(0, 128, 192));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 799, 629);
+		setBounds(100, 100, 1173, 737);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(0, 128, 255));
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(261, 174, 250, 226);
-		contentPane.add(panel);
-		panel.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("Bem Vindo");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel.setBounds(80, 11, 99, 14);
-		panel.add(lblNewLabel);
+		JPanel panelTeste = new JPanel();
+		panelTeste.setBackground(new Color(255, 255, 255));
+		panelTeste.setBounds(660, 74, 433, 613);
+		contentPane.add(panelTeste);
+		panelTeste.setLayout(null);
 		
 		textFieldUsuario = new JTextField();
-		textFieldUsuario.setBounds(47, 75, 160, 20);
-		panel.add(textFieldUsuario);
+		textFieldUsuario.setBackground(new Color(204, 255, 255));
+		textFieldUsuario.setBounds(32, 227, 359, 36);
+		panelTeste.add(textFieldUsuario);
 		textFieldUsuario.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("Usuário");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_1.setBounds(47, 58, 46, 14);
-		panel.add(lblNewLabel_1);
-		
 		JLabel lblNewLabel_1_1 = new JLabel("Senha");
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_1_1.setBounds(47, 112, 46, 14);
-		panel.add(lblNewLabel_1_1);
+		lblNewLabel_1_1.setBackground(new Color(0, 128, 255));
+		lblNewLabel_1_1.setForeground(new Color(0, 204, 255));
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel_1_1.setBounds(34, 258, 341, 43);
+		panelTeste.add(lblNewLabel_1_1);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(47, 125, 160, 20);
-		panel.add(passwordField);
+		passwordField.setBackground(new Color(204, 255, 255));
+		passwordField.setForeground(new Color(0, 128, 255));
+		passwordField.setBounds(34, 299, 359, 36);
+		panelTeste.add(passwordField);
 		
 		JButton btnNewButton = new JButton("Entrar");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnNewButton.setBorder(null);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 20));
 		//evento botao login
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -103,9 +103,38 @@ public class Jlogin extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBackground(new Color (0, 128, 255));
+		btnNewButton.setBackground(new Color(0, 128, 255));
 		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setBounds(80, 178, 89, 23);
-		panel.add(btnNewButton);
+		btnNewButton.setBounds(138, 485, 160, 36);
+		panelTeste.add(btnNewButton);
+		
+		JLabel lblNewLabel_1 = new JLabel("Usuário");
+		lblNewLabel_1.setBackground(new Color(0, 128, 255));
+		lblNewLabel_1.setForeground(new Color(102, 255, 204));
+		lblNewLabel_1.setBounds(32, 180, 143, 49);
+		panelTeste.add(lblNewLabel_1);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 18));
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(Jlogin.class.getResource("/icon/computer.png")));
+		lblNewLabel_2.setBounds(176, 62, 71, 79);
+		panelTeste.add(lblNewLabel_2);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(204, 255, 255));
+		panel_1.setBounds(0, 0, 591, 698);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Jlogin.class.getResource("/icon/user.png")));
+		lblNewLabel.setBounds(10, 86, 479, 521);
+		panel_1.add(lblNewLabel);
+		
+		JLabel lblNewLabel_3 = new JLabel("LOGIN");
+		lblNewLabel_3.setForeground(new Color(102, 255, 204));
+		lblNewLabel_3.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 27));
+		lblNewLabel_3.setBounds(827, 11, 220, 52);
+		contentPane.add(lblNewLabel_3);
 	}
 }

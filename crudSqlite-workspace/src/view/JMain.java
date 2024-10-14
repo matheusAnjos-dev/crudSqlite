@@ -9,9 +9,11 @@ import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.RowFilter;
 import javax.swing.JTable;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 import dao.DAO;
 import model.Cliente;
@@ -22,6 +24,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class JMain extends JFrame {
 
@@ -30,6 +34,8 @@ public class JMain extends JFrame {
 	private JTable table;
 	private ArrayList<Cliente> clientes;
 	private JMain jMain;
+	private JTextField textFieldBusca;
+	private TableRowSorter<ModeloTabela> rowSorter;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -58,7 +64,7 @@ public class JMain extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 866, 534);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(0, 128, 255));
+		contentPane.setBackground(new Color(204, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -102,10 +108,37 @@ public class JMain extends JFrame {
 			}
 		});
 		
-		
+		rowSorter = new TableRowSorter<>(modeloTabela);
+		table.setRowSorter(rowSorter);
 		table.setForeground(new Color(0, 0, 0));
 		scrollPane.setViewportView(table);
 
 		table.setBackground(new Color(230, 230, 230));
+		
+		textFieldBusca = new JTextField();
+		textFieldBusca.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				filtrar();
+			}
+		});
+		textFieldBusca.setBounds(21, 101, 446, 20);
+		contentPane.add(textFieldBusca);
+		textFieldBusca.setColumns(10);
+		
+		JButton btnNewButton_1 = new JButton("Pesquisar");
+		btnNewButton_1.setBounds(492, 99, 124, 23);
+		contentPane.add(btnNewButton_1);
+	}
+	
+	//funcao de filtrar busca
+	private void filtrar() {
+		String busca = textFieldBusca.getText().trim();
+		if(busca.length() == 0) {
+			rowSorter.setRowFilter(null);
+		}else {
+			rowSorter.setRowFilter(RowFilter.regexFilter("(?i)"+ busca));
+		}
+		
 	}
 }

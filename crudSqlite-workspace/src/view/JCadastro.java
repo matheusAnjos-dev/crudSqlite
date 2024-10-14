@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import java.awt.Color;
@@ -53,7 +54,7 @@ public class JCadastro extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 523, 361);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(0, 128, 255));
+		contentPane.setBackground(new Color(204, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -116,13 +117,20 @@ public class JCadastro extends JFrame {
 				Cliente cliente = new Cliente(null, textFieldNome.getText(), textFieldCpfCnpj.getText(),
 						textFieldEmail.getText(),textFieldTelefone.getText(),textAreaEndereco.getText());
 				if(clienteSelecionado == null) {
-					dao.cadastrarCliente(cliente);
-					abrirTelaPrincipal(jMain);
-						
+					if(!"".equalsIgnoreCase(textFieldNome.getText())  &&  !"".equalsIgnoreCase(textFieldCpfCnpj.getText())) {
+						dao.cadastrarCliente(cliente);
+						abrirTelaPrincipal(jMain);
+					}else {
+						JOptionPane.showMessageDialog(null, "Campos Nome e CPF/CNPJ são obrigatorios");
 					}
+				}
 				else {
-					dao.alterarCliente(cliente, clienteSelecionado.getId());
-					abrirTelaPrincipal(jMain);
+					if(!"".equalsIgnoreCase(textFieldNome.getText())  &&  !"".equalsIgnoreCase(textFieldCpfCnpj.getText())) {
+						dao.alterarCliente(cliente, clienteSelecionado.getId());
+						abrirTelaPrincipal(jMain);
+					}else {
+						JOptionPane.showMessageDialog(null, "Campos Nome e CPF/CNPJ são obrigatorios");
+					}
 				}
 
 			}
