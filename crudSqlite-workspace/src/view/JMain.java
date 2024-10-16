@@ -126,7 +126,12 @@ public class JMain extends JFrame {
 		contentPane.add(textFieldBusca);
 		textFieldBusca.setColumns(10);
 		
+		// não precisa. alterar para icon de lupa
 		JButton btnNewButton_1 = new JButton("Pesquisar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton_1.setBounds(492, 99, 124, 23);
 		contentPane.add(btnNewButton_1);
 	}

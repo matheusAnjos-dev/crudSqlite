@@ -70,7 +70,7 @@ public class Jlogin extends JFrame {
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Senha");
 		lblNewLabel_1_1.setBackground(new Color(0, 128, 255));
-		lblNewLabel_1_1.setForeground(new Color(0, 204, 255));
+		lblNewLabel_1_1.setForeground(new Color(30, 144, 255));
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_1_1.setBounds(34, 258, 341, 43);
 		panelTeste.add(lblNewLabel_1_1);
@@ -92,14 +92,14 @@ public class Jlogin extends JFrame {
 						!textFieldUsuario.getText().isEmpty() &&
 						passwordField.getText()!= null &&
 						!passwordField.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(btnNewButton, "Login realizado com sucesso.");
+					JOptionPane.showMessageDialog(null, "Login realizado com sucesso.");
 					dispose(); // fecha janela de login
 					JMain jMain = new JMain();
 					jMain.setLocationRelativeTo(jMain);
 					jMain.setVisible(true);
 				}
 				else {
-					JOptionPane.showMessageDialog(btnNewButton, "Usuario ou senha incorretos. Verifique as informações", "Aviso", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Usuario ou senha incorretos. Verifique as informações", "Aviso", JOptionPane.WARNING_MESSAGE);
 				}
 			}
 		});
@@ -110,7 +110,7 @@ public class Jlogin extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("Usuário");
 		lblNewLabel_1.setBackground(new Color(0, 128, 255));
-		lblNewLabel_1.setForeground(new Color(102, 255, 204));
+		lblNewLabel_1.setForeground(new Color(30, 144, 255));
 		lblNewLabel_1.setBounds(32, 180, 143, 49);
 		panelTeste.add(lblNewLabel_1);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -121,20 +121,21 @@ public class Jlogin extends JFrame {
 		panelTeste.add(lblNewLabel_2);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(204, 255, 255));
+		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBounds(0, 0, 591, 698);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(Jlogin.class.getResource("/icon/user.png")));
-		lblNewLabel.setBounds(10, 86, 479, 521);
+		lblNewLabel.setBounds(39, 89, 479, 521);
 		panel_1.add(lblNewLabel);
 		
 		JLabel lblNewLabel_3 = new JLabel("LOGIN");
-		lblNewLabel_3.setForeground(new Color(102, 255, 204));
+		lblNewLabel_3.setBackground(new Color(30, 144, 255));
+		lblNewLabel_3.setForeground(new Color(30, 144, 255));
 		lblNewLabel_3.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 27));
-		lblNewLabel_3.setBounds(827, 11, 220, 52);
+		lblNewLabel_3.setBounds(837, 11, 220, 52);
 		contentPane.add(lblNewLabel_3);
 	}
 }
